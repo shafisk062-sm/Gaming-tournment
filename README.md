@@ -34,6 +34,18 @@ To load the demo data, run this once from the project root while MongoDB is runn
 npm run seed --prefix backend
 ```
 
+## Deploy to Vercel
+
+Import this repository into Vercel with the repository root as the project root. The root `vercel.json` builds a public Vite frontend, routes `/api/*` to the Express backend, and rewrites frontend deep links to the SPA entry point.
+
+Set these environment variables for the backend service in Vercel:
+
+- `MONGODB_URI`: your MongoDB Atlas connection string
+- `JWT_SECRET`: a long, random secret
+- `JWT_EXPIRES`: optional; defaults to `7d`
+
+The frontend uses the same-domain `/api` path, so no frontend API URL or service binding is required. Locally, Vite proxies `/api` to the backend on port `5000`.
+
 ## Demo accounts
 
 After seeding:
